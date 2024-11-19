@@ -20,6 +20,7 @@ namespace ChessTest
         {
             Square square = new Square(move.Destination.File, move.Destination.Rank);
             Piece piece = board[square.File, square.Rank];
+            Console.WriteLine(square.File + " " + square.Rank);
             if (piece == null) return "null";
             var pieceName = piece.GetType().Name;
             Console.WriteLine(pieceName);
@@ -44,11 +45,13 @@ namespace ChessTest
         }
         public static bool GameFinished(GameBoard board)
         {
-            if (board.GameState == GameState.WhiteWinner) return true;
+            if (board.GameState==GameState.Stalemate) return true;
+            else if (board.GameState == GameState.WhiteWinner) return true;
             else if (board.GameState == GameState.BlackWinner) return true;
-            else if (board.GameState == GameState.Stalemate) return true;
+            else if (board.GameState == GameState.Draw) return true;
             else return false;
         }
+        
     }
     
 }
