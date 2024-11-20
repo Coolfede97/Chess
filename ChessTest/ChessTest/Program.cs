@@ -15,7 +15,7 @@ public class Program
 
         var movementCount = 1;
 
-        while (board.GameState==GameState.NotCompleted)
+        while (!GetterManager.GameFinished(board))
         {
             var move1 = bot1.GetMove(board);
 
@@ -36,9 +36,7 @@ public class Program
             movementCount++;
 
         }
-        var pgn = $"[Event \"Partida de prueba\"]\n[Site \"Chess.com\"]\n[Date \"{DateTime.Now:yyyy.MM.dd}\"]\n" +
-                  "[Round \"1\"]\n[White \"RandomBot1\"]\n[Black \"RandomBot2\"]\n[Result \"*\"]\n\n" +
-                  string.Join(" ", pgnMovements);
+        var pgn = string.Join(" ", pgnMovements);
         Console.WriteLine(pgn);
 
     }

@@ -22,7 +22,6 @@ namespace ChessTest
             Piece piece = board[square.File, square.Rank];
             if (piece == null) return "null";
             var pieceName = piece.GetType().Name;
-            Console.WriteLine(pieceName);
             return pieceName;
 
         }
@@ -44,10 +43,26 @@ namespace ChessTest
         }
         public static bool GameFinished(GameBoard board)
         {
-            if (board.GameState==GameState.Stalemate) return true;
-            else if (board.GameState == GameState.WhiteWinner) return true;
-            else if (board.GameState == GameState.BlackWinner) return true;
-            else if (board.GameState == GameState.Draw) return true;
+            if (board.GameState==GameState.Stalemate) 
+            {
+                Console.WriteLine("Se ganó por Stalemate");
+                return true;
+            }
+            else if (board.GameState == GameState.WhiteWinner) 
+            {
+                Console.WriteLine("Ganaron las blancas");
+                return true;
+            }
+            else if (board.GameState == GameState.BlackWinner) 
+            {
+                Console.WriteLine("Ganaron las negras");
+                return true;
+            }
+            else if (board.GameState == GameState.Draw) 
+            {
+                Console.WriteLine("Empate");
+                return true;
+            }
             else return false;
         }
         
