@@ -20,7 +20,6 @@ namespace ChessTest
         {
             Square square = new Square(move.Destination.File, move.Destination.Rank);
             Piece piece = board[square.File, square.Rank];
-            Console.WriteLine(square.File + " " + square.Rank);
             if (piece == null) return "null";
             var pieceName = piece.GetType().Name;
             Console.WriteLine(pieceName);
